@@ -16,8 +16,8 @@ export class PostsController {
     return this.postsService.findAll();
   }
 
-  // @Get(':id')
-  // findOne(@Param('id'), id: string) {
-
-  // }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    
+  }
 }
