@@ -23,6 +23,20 @@ class PostsService {
   findOne(id: number) {
     return this.postsRepository.findOneBy({ id });
   }
+
+  async update(id: number, title: string, body: string) {
+    const post = await this.postsRepository.findOneBy({ id });
+    if (!post) return null;
+    post.title = title;
+    post.body = body;
+    return this.postsRepository.save(post);
+  }
+
+  async remove(id: number) {
+    const post = await this.postsRepository.findOneBy({ id });
+    if (!post) return null;
+    return this.postsRepository.remove(post);
+  }
 }
 
 export { PostsService };
